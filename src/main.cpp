@@ -16,7 +16,11 @@ void loop() {
   value >>= 4;// Shift right value >> 4
   value = ~value; // Invert the value
   value = value & 0x0F; // Mask the value (0x0F)
+  value = ~value; // Invert the value again
+  value = value +1; // Increment the value by 1
+  value = value & 0x0F; // Mask the value (0x0F)
   PORTB = value; // Display on LEDs
+  Serial.println("---------------"); // Print a separator line
   Serial.print("Binary:"); // Print the label for binary output
   Serial.println(value, BIN); // Print the value in binary format
   Serial.print("Decimal:"); // Print the label for decimal output
